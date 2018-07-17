@@ -22,32 +22,42 @@
             (onRowInserting)="logEvent('RowInserting', $event)"
             (onRowInserted)="logEvent('RowInserted', $event)"
             (onRowUpdating)="logEvent('RowUpdating', $event)"
-            (onRowUpdated)="logEvent('RowUpdated', $event)"
+            (onRowUpdated)="updateRow($event)"
             (onRowRemoving)="logEvent('RowRemoving', $event)"
             (onRowRemoved)="logEvent('RowRemoved', $event)">
 
-            <dxo-paging [enabled]="true"></dxo-paging>
-            <dxo-editing
-              mode="row"
-              [allowUpdating]="true"
-              [allowDeleting]="true"
-              [allowAdding]="true">
-            </dxo-editing>
+            <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+            <dxo-load-panel [enabled]="true"></dxo-load-panel>
 
             <dxi-column dataField="EquipmentModel" caption="Model"></dxi-column>
             <dxi-column dataField="EquipmentPlate"></dxi-column>
             <dxi-column dataField="EquipmentSerial"></dxi-column>
             <dxi-column dataField="EquipmentType" [width]="130"></dxi-column>
-            <dxi-column
-              dataField="EquipmentTypeId"
-              caption="State"
-              [width]="125">
+            <dxi-column dataField="EquipmentTypeId" caption="State" [width]="125"></dxi-column>
+            <dxi-column dataField="MakeYear" [width]="125" dataType="date">
             </dxi-column>
-            <dxi-column
-              dataField="MakeYear"
-              [width]="125"
-              dataType="date">
-            </dxi-column>
+            <!--<dxi-column dataField="Actions" [allowHeaderFiltering]="false"-->
+                        <!--[allowFiltering]="false" [allowSorting]="false" cellTemplate="cemplate"-->
+                        <!--alignment="center" [width]="70"></dxi-column>-->
+            <!--<div *dxTemplate="let data of 'cemplate'">-->
+              <!--<i class="fas fa-cog" title="Modifier" data-toggle="tooltip" (click)="onTest(data)"></i>-->
+            <!--</div>-->
+
+            <dxo-editing
+                    mode="row"
+                    [allowUpdating]="true"
+                    [allowDeleting]="true"
+                    [allowAdding]="true">
+            </dxo-editing>
+
+            <dxo-paging [pageSize]="10"></dxo-paging>
+            <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[5, 10, 20]" [showInfo]="true">
+            </dxo-pager>
+            <dxo-sorting mode="multiple"></dxo-sorting>
+            <dxo-filter-row [visible]="true"></dxo-filter-row>
+            <dxo-header-filter [visible]="true"></dxo-header-filter>
+            <dxo-search-panel [visible]="true" [width]="240" placeholder="Rechercher..."></dxo-search-panel>
+            <dxo-group-panel [visible]="true"></dxo-group-panel>
           </dx-data-grid>
         </div>
       </div>
