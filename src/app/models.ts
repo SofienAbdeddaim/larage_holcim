@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-export class Employee {
+export class Equipment {
   ID: number;
   EquipmentModel: string;
   EquipmentPlate: string;
@@ -12,17 +12,10 @@ export class Employee {
   VinNumber: number;
 }
 
-export class State {
+export class Inspections {
   ID: number;
-  Name: string;
+  OperatorName: string;
+  PlateNumber: string;
+  Date: string;
 }
 
-@Injectable()
-export class Service {
-  getEmployees() {
-    // return employees;
-  }
-  getStates() {
-    // return states;
-  }
-}

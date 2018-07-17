@@ -14,26 +14,26 @@
         <div class="card-body">
           <dx-data-grid
             id="gridContainer"
-            [dataSource]="dataSource"
+            [dataSource]="dataSourceEquip"
             keyExpr="ID"
             [allowColumnReordering]="true"
             (onEditingStart)="logEvent('EditingStart', $event)"
             (onInitNewRow)="logEvent('InitNewRow', $event)"
             (onRowInserting)="logEvent('RowInserting', $event)"
-            (onRowInserted)="logEvent('RowInserted', $event)"
+            (onRowInserted)="addItem($event, 'equi')"
             (onRowUpdating)="logEvent('RowUpdating', $event)"
-            (onRowUpdated)="updateRow($event)"
+            (onRowUpdated)="updateItem($event, 'equi')"
             (onRowRemoving)="logEvent('RowRemoving', $event)"
-            (onRowRemoved)="logEvent('RowRemoved', $event)">
+            (onRowRemoved)="toDeleteItem($event, 'equi')">
 
             <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
             <dxo-load-panel [enabled]="true"></dxo-load-panel>
 
             <dxi-column dataField="EquipmentModel" caption="Model"></dxi-column>
-            <dxi-column dataField="EquipmentPlate"></dxi-column>
-            <dxi-column dataField="EquipmentSerial"></dxi-column>
-            <dxi-column dataField="EquipmentType" [width]="130"></dxi-column>
-            <dxi-column dataField="EquipmentTypeId" caption="State" [width]="125"></dxi-column>
+            <dxi-column dataField="EquipmentPlate" caption="Plate"></dxi-column>
+            <dxi-column dataField="EquipmentSerial" caption="Serial"></dxi-column>
+            <dxi-column dataField="EquipmentType" caption="Type"></dxi-column>
+            <dxi-column dataField="EquipmentTypeId" caption="Type Id"></dxi-column>
             <dxi-column dataField="MakeYear" [width]="125" dataType="date">
             </dxi-column>
             <!--<dxi-column dataField="Actions" [allowHeaderFiltering]="false"-->
@@ -42,7 +42,6 @@
             <!--<div *dxTemplate="let data of 'cemplate'">-->
               <!--<i class="fas fa-cog" title="Modifier" data-toggle="tooltip" (click)="onTest(data)"></i>-->
             <!--</div>-->
-
             <dxo-editing
                     mode="row"
                     [allowUpdating]="true"
@@ -73,20 +72,32 @@
       <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
         <div class="card-body">
           <dx-data-grid
-            id="gridContainer"
-            [dataSource]="dataSource"
+            id="gridContainer22"
+            [dataSource]="dataSourceInsp"
             keyExpr="ID"
             [allowColumnReordering]="true"
             (onEditingStart)="logEvent('EditingStart', $event)"
             (onInitNewRow)="logEvent('InitNewRow', $event)"
             (onRowInserting)="logEvent('RowInserting', $event)"
-            (onRowInserted)="logEvent('RowInserted', $event)"
+            (onRowInserted)="addItem($event, 'insp')"
             (onRowUpdating)="logEvent('RowUpdating', $event)"
-            (onRowUpdated)="logEvent('RowUpdated', $event)"
+            (onRowUpdated)="updateItem($event, 'insp')"
             (onRowRemoving)="logEvent('RowRemoving', $event)"
-            (onRowRemoved)="logEvent('RowRemoved', $event)">
+            (onRowRemoved)="toDeleteItem($event, 'insp')">
 
-            <dxo-paging [enabled]="true"></dxo-paging>
+            <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+            <dxo-load-panel [enabled]="true"></dxo-load-panel>
+
+            <dxi-column dataField="OperatorName" caption="Name"></dxi-column>
+            <dxi-column dataField="PlateNumber" caption="Number"></dxi-column>
+            <dxi-column dataField="Date" [width]="125" dataType="date">
+            </dxi-column>
+            <!--<dxi-column dataField="Actions" [allowHeaderFiltering]="false"-->
+            <!--[allowFiltering]="false" [allowSorting]="false" cellTemplate="cemplate"-->
+            <!--alignment="center" [width]="70"></dxi-column>-->
+            <!--<div *dxTemplate="let data of 'cemplate'">-->
+            <!--<i class="fas fa-cog" title="Modifier" data-toggle="tooltip" (click)="onTest(data)"></i>-->
+            <!--</div>-->
             <dxo-editing
               mode="row"
               [allowUpdating]="true"
@@ -94,20 +105,14 @@
               [allowAdding]="true">
             </dxo-editing>
 
-            <dxi-column dataField="EquipmentModel" caption="Model"></dxi-column>
-            <dxi-column dataField="EquipmentPlate"></dxi-column>
-            <dxi-column dataField="EquipmentSerial"></dxi-column>
-            <dxi-column dataField="EquipmentType" [width]="130"></dxi-column>
-            <dxi-column
-              dataField="EquipmentTypeId"
-              caption="State"
-              [width]="125">
-            </dxi-column>
-            <dxi-column
-              dataField="MakeYear"
-              [width]="125"
-              dataType="date">
-            </dxi-column>
+            <dxo-paging [pageSize]="10"></dxo-paging>
+            <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[5, 10, 20]" [showInfo]="true">
+            </dxo-pager>
+            <dxo-sorting mode="multiple"></dxo-sorting>
+            <dxo-filter-row [visible]="true"></dxo-filter-row>
+            <dxo-header-filter [visible]="true"></dxo-header-filter>
+            <dxo-search-panel [visible]="true" [width]="240" placeholder="Rechercher..."></dxo-search-panel>
+            <dxo-group-panel [visible]="true"></dxo-group-panel>
           </dx-data-grid>
         </div>
       </div>
