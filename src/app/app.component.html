@@ -1,0 +1,106 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+  <div id="accordion" role="tablist">
+    <div class="card">
+      <div class="card-header" role="tab" id="headingOne">
+        <h5 class="mb-0">
+          <a data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">
+            Equipements
+          </a>
+        </h5>
+      </div>
+
+      <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          <dx-data-grid
+            id="gridContainer"
+            [dataSource]="dataSource"
+            keyExpr="ID"
+            [allowColumnReordering]="true"
+            (onEditingStart)="logEvent('EditingStart', $event)"
+            (onInitNewRow)="logEvent('InitNewRow', $event)"
+            (onRowInserting)="logEvent('RowInserting', $event)"
+            (onRowInserted)="logEvent('RowInserted', $event)"
+            (onRowUpdating)="logEvent('RowUpdating', $event)"
+            (onRowUpdated)="logEvent('RowUpdated', $event)"
+            (onRowRemoving)="logEvent('RowRemoving', $event)"
+            (onRowRemoved)="logEvent('RowRemoved', $event)">
+
+            <dxo-paging [enabled]="true"></dxo-paging>
+            <dxo-editing
+              mode="row"
+              [allowUpdating]="true"
+              [allowDeleting]="true"
+              [allowAdding]="true">
+            </dxo-editing>
+
+            <dxi-column dataField="EquipmentModel" caption="Model"></dxi-column>
+            <dxi-column dataField="EquipmentPlate"></dxi-column>
+            <dxi-column dataField="EquipmentSerial"></dxi-column>
+            <dxi-column dataField="EquipmentType" [width]="130"></dxi-column>
+            <dxi-column
+              dataField="EquipmentTypeId"
+              caption="State"
+              [width]="125">
+            </dxi-column>
+            <dxi-column
+              dataField="MakeYear"
+              [width]="125"
+              dataType="date">
+            </dxi-column>
+          </dx-data-grid>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" role="tab" id="headingTwo">
+        <h5 class="mb-0">
+          <a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
+            Inspections
+          </a>
+        </h5>
+      </div>
+      <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+          <dx-data-grid
+            id="gridContainer"
+            [dataSource]="dataSource"
+            keyExpr="ID"
+            [allowColumnReordering]="true"
+            (onEditingStart)="logEvent('EditingStart', $event)"
+            (onInitNewRow)="logEvent('InitNewRow', $event)"
+            (onRowInserting)="logEvent('RowInserting', $event)"
+            (onRowInserted)="logEvent('RowInserted', $event)"
+            (onRowUpdating)="logEvent('RowUpdating', $event)"
+            (onRowUpdated)="logEvent('RowUpdated', $event)"
+            (onRowRemoving)="logEvent('RowRemoving', $event)"
+            (onRowRemoved)="logEvent('RowRemoved', $event)">
+
+            <dxo-paging [enabled]="true"></dxo-paging>
+            <dxo-editing
+              mode="row"
+              [allowUpdating]="true"
+              [allowDeleting]="true"
+              [allowAdding]="true">
+            </dxo-editing>
+
+            <dxi-column dataField="EquipmentModel" caption="Model"></dxi-column>
+            <dxi-column dataField="EquipmentPlate"></dxi-column>
+            <dxi-column dataField="EquipmentSerial"></dxi-column>
+            <dxi-column dataField="EquipmentType" [width]="130"></dxi-column>
+            <dxi-column
+              dataField="EquipmentTypeId"
+              caption="State"
+              [width]="125">
+            </dxi-column>
+            <dxi-column
+              dataField="MakeYear"
+              [width]="125"
+              dataType="date">
+            </dxi-column>
+          </dx-data-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
