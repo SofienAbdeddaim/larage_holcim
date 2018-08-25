@@ -2,7 +2,8 @@
 
 This project is deployed on firebase hosting with the following url: https://lafargeinspections.firebaseapp.com/pages/inspeccion
 ![alt text](https://i.gyazo.com/30ac3bf399df85e6c1b08cb05a904bbf.png)
-
+![alt text](https://i.gyazo.com/c307dfb41337603698847e85cbc18061.gif)
+![alt text](https://i.gyazo.com/ca0bf0b2d92e37ee2c738e4441d8922e.gif)
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
