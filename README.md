@@ -1,6 +1,7 @@
-# JorgeFiverr
+# LafrageHolcim
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+This project is deployed on firebase hosting with the following url: https://lafargeinspections.firebaseapp.com/pages/inspeccion
+![alt text](https://i.gyazo.com/30ac3bf399df85e6c1b08cb05a904bbf.png)
 
 ## Development server
 
